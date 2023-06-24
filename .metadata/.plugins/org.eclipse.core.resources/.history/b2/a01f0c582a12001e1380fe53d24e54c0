@@ -1,0 +1,21 @@
+package services;
+
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.stereotype.Service;
+
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
+@Service
+public class StringProducerService {
+	
+	StringProducerService str = new StringProducerService();
+	private final KafkaTemplate<String, String> kafkaTemplate = KafkaTemplate<String, String>;
+	
+	public void sendMessage (String message) {
+		kafkaTemplate.send("str-topic", message);
+	}
+	
+	
+
+}
